@@ -1,0 +1,35 @@
+
+
+<Game>:
+    text: text
+    input: input
+    Label:
+        canvas.before:
+            Color:
+                rgba: app.theme_cls.primary_color
+            RoundedRectangle:
+                pos: self.pos
+                size: self.size
+                radius: [20,]
+        id: text
+        text: 'xxx'
+        font_size: 20
+        center: root.center_x, root.height/1.5
+        size: len(self.text)*15+25, 40
+
+    MDTextField:
+        id: input
+        hint_text: root.input_hint
+        center: root.center
+        size: root.width - 20, self.size[1]
+        on_focus: root.on_text(self)
+        on_cursor: root.win()
+        font_size: 20
+
+    MDLabel:
+        id: scor
+        text: f'Best scor: {root.bScor} \nScor: {root.scor}'
+        font_size: 20
+        top: root.top
+        x: 10
+        width: root.width 
